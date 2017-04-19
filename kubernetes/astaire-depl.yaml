@@ -10,7 +10,8 @@ spec:
         service: astaire
     spec:
       containers:
-      - image: "gcr.io/angelic-mender-163009/astaire:latest"
+      - image: "resouer/astaire:latest"
+        imagePullPolicy: IfNotPresent
         name: astaire
         ports:
         - containerPort: 22
@@ -28,4 +29,7 @@ spec:
         readinessProbe:
           tcpSocket:
             port: 11311
+        resources:
+          limits:
+            memory: 1Gi    
       restartPolicy: Always

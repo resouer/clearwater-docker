@@ -10,7 +10,8 @@ spec:
         service: homer
     spec:
       containers:
-      - image: "gcr.io/angelic-mender-163009/homer:latest"
+      - image: "resouer/homer:latest"
+        imagePullPolicy: IfNotPresent
         name: homer
         ports:
         - containerPort: 22
@@ -29,4 +30,7 @@ spec:
         readinessProbe:
           tcpSocket:
             port: 7888
+        resources:
+          limits:
+            memory: 1Gi
       restartPolicy: Always

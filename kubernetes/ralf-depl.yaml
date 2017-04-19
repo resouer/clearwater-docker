@@ -14,7 +14,8 @@ spec:
         snmp: enabled
     spec:
       containers:
-      - image: "gcr.io/angelic-mender-163009/ralf:latest"
+      - image: "resouer/ralf:latest"
+        imagePullPolicy: IfNotPresent
         name: ralf
         ports:
         - containerPort: 22
@@ -33,4 +34,7 @@ spec:
         readinessProbe:
           tcpSocket:
             port: 10888
+        resources:
+          limits:
+            memory: 1Gi
       restartPolicy: Always

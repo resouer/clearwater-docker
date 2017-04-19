@@ -12,7 +12,9 @@ spec:
         service: chronos
     spec:
       containers:
-      - image: "gcr.io/angelic-mender-163009/chronos:latest"
+      - image: "resouer/chronos:latest"
+        imagePullPolicy: IfNotPresent
+        imagePullPolicy: IfNotPresent
         name: chronos
         ports:
         - containerPort: 22
@@ -29,4 +31,7 @@ spec:
         readinessProbe:
           tcpSocket:
             port: 7253
+        resources:
+          limits:
+            memory: 1Gi
       restartPolicy: Always

@@ -10,7 +10,8 @@ spec:
         service: cassandra
     spec:
       containers:
-      - image: "gcr.io/angelic-mender-163009/cassandra:latest"
+      - image: "resouer/cassandra:latest"
+        imagePullPolicy: IfNotPresent
         name: cassandra
         ports:
         - containerPort: 22
@@ -32,4 +33,7 @@ spec:
         readinessProbe:
           exec:
             command: ["/bin/bash", "/usr/share/kubernetes/liveness.sh", "7000 9042 9160"]
+        resources:
+          limits:
+            memory: 1Gi
       restartPolicy: Always

@@ -10,7 +10,8 @@ spec:
         service: ellis
     spec:
       containers:
-      - image: "gcr.io/angelic-mender-163009/ellis:latest"
+      - image: "resouer/ellis:latest"
+        imagePullPolicy: IfNotPresent
         name: ellis
         ports:
         - containerPort: 22
@@ -29,4 +30,7 @@ spec:
         readinessProbe:
           tcpSocket:
             port: 80
+        resources:
+          limits:
+            memory: 1Gi
       restartPolicy: Always

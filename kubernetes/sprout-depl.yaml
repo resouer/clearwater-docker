@@ -14,7 +14,8 @@ spec:
         snmp: enabled
     spec:
       containers:
-      - image: "gcr.io/angelic-mender-163009/sprout:latest"
+      - image: "resouer/sprout:latest"
+        imagePullPolicy: IfNotPresent
         name: sprout
         ports:
         - containerPort: 22
@@ -33,4 +34,7 @@ spec:
         readinessProbe:
           exec:
             command: ["/bin/bash", "/usr/share/kubernetes/liveness.sh", "5052 5054"]
+        resources:
+          limits:
+            memory: 1Gi
       restartPolicy: Always

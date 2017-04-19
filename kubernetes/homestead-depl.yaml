@@ -14,7 +14,8 @@ spec:
         snmp: enabled
     spec:
       containers:
-      - image: "gcr.io/angelic-mender-163009/homestead:latest"
+      - image: "resouer/homestead:latest"
+        imagePullPolicy: IfNotPresent
         name: homestead
         ports:
         - containerPort: 22
@@ -34,4 +35,7 @@ spec:
         readinessProbe:
           exec:
             command: ["/bin/bash", "/usr/share/kubernetes/liveness.sh", "8888 8889"]
+        resources:
+          limits:
+            memory: 1Gi
       restartPolicy: Always
