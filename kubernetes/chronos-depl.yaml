@@ -12,7 +12,7 @@ spec:
         service: chronos
     spec:
       containers:
-      - image: "<MY_REPO>/clearwater/chronos:latest"
+      - image: "resouer/chronos:latest"
         name: chronos
         ports:
         - containerPort: 22
@@ -22,11 +22,4 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
-        livenessProbe:
-          tcpSocket:
-            port: 7253
-          initialDelaySeconds: 30
-        readinessProbe:
-          tcpSocket:
-            port: 7253
       restartPolicy: Always

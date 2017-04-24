@@ -10,7 +10,7 @@ spec:
         service: ellis
     spec:
       containers:
-      - image: "<MY_REPO>/clearwater/ellis:latest"
+      - image: "resouer/ellis:latest"
         name: ellis
         ports:
         - containerPort: 22
@@ -22,11 +22,4 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
-        livenessProbe:
-          tcpSocket:
-            port: 80
-          initialDelaySeconds: 30
-        readinessProbe:
-          tcpSocket:
-            port: 80
       restartPolicy: Always

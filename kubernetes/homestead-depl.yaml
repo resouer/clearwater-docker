@@ -14,7 +14,7 @@ spec:
         snmp: enabled
     spec:
       containers:
-      - image: "<MY_REPO>/clearwater/homestead:latest"
+      - image: "resouer/homestead:latest"
         name: homestead
         ports:
         - containerPort: 22
@@ -27,11 +27,4 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
-        livenessProbe:
-          exec:
-            command: ["/bin/bash", "/usr/share/kubernetes/liveness.sh", "8888 8889"]
-          initialDelaySeconds: 60
-        readinessProbe:
-          exec:
-            command: ["/bin/bash", "/usr/share/kubernetes/liveness.sh", "8888 8889"]
       restartPolicy: Always
