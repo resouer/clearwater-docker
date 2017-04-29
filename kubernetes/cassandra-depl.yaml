@@ -8,6 +8,8 @@ spec:
     metadata:
       labels:
         service: cassandra
+      annotations:
+        "runtime.frakti.alpha.kubernetes.io/OSContainer": "true"
     spec:
       containers:
       - image: "resouer/cassandra:latest"
