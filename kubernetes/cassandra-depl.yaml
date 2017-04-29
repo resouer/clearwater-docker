@@ -23,7 +23,7 @@ spec:
             fieldRef:
               fieldPath: status.podIP
         - name: ZONE
-          value: default.svc.cluster.local
+          value: default.svc.35.185.135.130.xip.io
         resources:
           limits:
             memory: 2Gi

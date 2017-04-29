@@ -22,7 +22,7 @@ spec:
         - containerPort: 8889
         env:
         - name: ZONE
-          value: default.svc.cluster.local
+          value: default.svc.35.185.135.130.xip.io
         - name: MY_POD_IP
           valueFrom:
             fieldRef:
