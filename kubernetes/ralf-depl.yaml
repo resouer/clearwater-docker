@@ -26,4 +26,11 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
+        livenessProbe:
+          tcpSocket:
+            port: 10888
+          initialDelaySeconds: 30
+        readinessProbe:
+          tcpSocket:
+            port: 10888
       restartPolicy: Always

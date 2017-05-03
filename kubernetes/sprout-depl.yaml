@@ -25,4 +25,12 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
+        livenessProbe:
+          exec:
+            command: ["/bin/bash", "/usr/share/kubernetes/liveness.sh", "5052 5054"]
+          initialDelaySeconds: 30
+          periodSeconds: 3
+        readinessProbe:
+          exec:
+            command: ["/bin/bash", "/usr/share/kubernetes/liveness.sh", "5052 5054"]
       restartPolicy: Always
